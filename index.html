@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bürgerkonsultation Oelde — Gesundheitsversorgung</title>
+<meta name="description" content="Nonpartisane Bürgerkonsultation zu Krankenhausschließung und hausärztlicher Versorgung in Oelde.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root{
+    --paper:#FAF8F3;
+    --paper-dim:#F0ECE3;
+    --ink:#16232C;
+    --ink-soft:#4A5A63;
+    --teal:#2B6777;
+    --teal-dark:#1D4B57;
+    --line:#D9D2C2;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    font-size:17px;
+  }
+  h1,h2,h3{
+    font-family:'Source Serif 4', serif;
+    font-weight:600;
+    line-height:1.15;
+    margin:0 0 0.5em 0;
+    color:var(--ink);
+  }
+  a{color:var(--teal-dark);}
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+  :focus-visible{outline:3px solid var(--teal); outline-offset:2px;}
+
+  /* ---- Header / Hero ---- */
+  header.hero{
+    border-bottom:1px solid var(--line);
+    padding:64px 0 48px;
+  }
+  .kicker{
+    font-size:0.95rem;
+    color:var(--teal-dark);
+    margin:0 0 18px 0;
+  }
+  header.hero h1{
+    font-size:clamp(2.1rem, 5vw, 3.1rem);
+    max-width:14ch;
+  }
+  header.hero p.lead{
+    font-size:1.2rem;
+    color:var(--ink-soft);
+    max-width:52ch;
+    margin-top:18px;
+  }
+
+  /* ---- Intro / Anlass ---- */
+  section.intro{padding:48px 0;}
+  section.intro p{max-width:62ch; color:var(--ink-soft);}
+
+  /* ---- Themenblöcke ---- */
+  section.themen{padding:16px 0 48px;}
+  .theme-card{
+    border:1px solid var(--line);
+    background:var(--white);
+    border-radius:4px;
+    padding:32px;
+    margin-bottom:24px;
+  }
+  .theme-card h2{font-size:1.5rem;}
+  .theme-card .tag{
+    display:inline-block;
+    font-size:0.85rem;
+    color:var(--teal-dark);
+    border:1px solid var(--teal);
+    border-radius:999px;
+    padding:3px 12px;
+    margin-bottom:14px;
+  }
+  .theme-card p{color:var(--ink-soft); max-width:58ch;}
+  .theme-card ul{color:var(--ink-soft); padding-left:1.2em; max-width:58ch;}
+  .theme-card li{margin-bottom:6px;}
+
+  /* ---- So funktioniert's ---- */
+  section.ablauf{
+    padding:48px 0;
+    border-top:1px solid var(--line);
+  }
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+    margin-top:28px;
+  }
+  @media (max-width:640px){ .steps{grid-template-columns:1fr;} }
+  .step h3{font-size:1.05rem; font-family:'IBM Plex Sans', sans-serif; font-weight:600;}
+  .step p{color:var(--ink-soft); font-size:0.98rem; margin-top:6px;}
+  .step-num{
+    font-family:'Source Serif 4', serif;
+    font-size:1.6rem;
+    color:var(--teal);
+  }
+
+  /* ---- Teilnahme / CTA ---- */
+  section.teilnahme{
+    background:var(--teal-dark);
+    color:var(--paper);
+    padding:56px 0;
+    margin-top:16px;
+  }
+  section.teilnahme h2{color:var(--paper); font-size:1.8rem;}
+  section.teilnahme p{color:#CFE0E3; max-width:48ch;}
+  .cta-row{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    margin-top:28px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-block;
+    background:var(--paper);
+    color:var(--teal-dark);
+    text-decoration:none;
+    font-weight:600;
+    padding:14px 28px;
+    border-radius:4px;
+    font-size:1.05rem;
+  }
+  .btn:hover{background:#fff;}
+  #qrcode{
+    background:var(--white);
+    padding:10px;
+    border-radius:4px;
+    line-height:0;
+  }
+  .qr-hint{font-size:0.85rem; color:#B9CDD1; margin-top:8px;}
+
+  /* ---- Hinweis nonpartisan ---- */
+  section.hinweis{padding:40px 0;}
+  section.hinweis .box{
+    border-left:3px solid var(--teal);
+    padding:4px 24px;
+    color:var(--ink-soft);
+    font-size:0.98rem;
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:32px 0 56px;
+    color:var(--ink-soft);
+    font-size:0.9rem;
+  }
+  footer a{color:var(--ink-soft);}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Buergerkonsultation Oelde · nonpartisan</p>
+    <h1>Gesundheitsversorgung in Oelde mitgestalten</h1>
+    <p class="lead">Das Marienhospital schließt, und der hausärztlichen Versorgung fehlen schon heute Praxen. Sagen Sie uns, was für Sie dabei unbedingt erhalten bleiben muss.</p>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <p>Zwei Entwicklungen verändern die medizinische Versorgung vor Ort spürbar: die anstehende Schließung des Marienhospitals und ein wachsender Mangel an Hausarztpraxen. Diese Konsultation sammelt Meinungen aus der Bevölkerung zu beiden Themen — offen, ohne Parteibindung und ohne vorgegebenes Ergebnis. Die Auswertung erfolgt mit der Software <a href="https://pol.is" target="_blank" rel="noopener">pol.is</a>, die Zustimmung und Ablehnung zu einzelnen Aussagen sichtbar macht, statt Mehrheitsmeinungen zu erzwingen.</p>
+  </div>
+</section>
+
+<section class="themen">
+  <div class="wrap">
+
+    <div class="theme-card">
+      <span class="tag">Thema 1</span>
+      <h2>Krankenhausschließung</h2>
+      <p>Das Marienhospital schließt. Die Konsultation fragt, was in Oelde dabei unbedingt erhalten bleiben muss:</p>
+      <ul>
+        <li>Notfallversorgung</li>
+        <li>Ärztliche Versorgung</li>
+        <li>Ambulante Angebote</li>
+        <li>Pflege und Nachsorge</li>
+        <li>Kurze Wege für ältere Menschen</li>
+        <li>Arbeitsplätze im Gesundheitsbereich</li>
+      </ul>
+    </div>
+
+    <div class="theme-card">
+      <span class="tag">Thema 2</span>
+      <h2>Hausärztliche Versorgung</h2>
+      <p>Stand heute fehlen in Oelde drei zusätzliche Hausärztinnen und Hausärzte — mit weiterem Ersatzbedarf, sobald Praxen aus Altersgründen aufgegeben werden. Die Konsultation fragt, welche Lösungswege Vorrang haben sollten.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="ablauf">
+  <div class="wrap">
+    <h2 style="font-size:1.6rem;">So funktioniert die Konsultation</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Aussagen lesen</h3>
+        <p>Kurze Thesen zu beiden Themen — einzeln, in eigenem Tempo.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Zustimmen oder ablehnen</h3>
+        <p>Stimmen, überspringen oder ablehnen — es gibt kein richtig oder falsch.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Eigene Aussagen ergänzen</h3>
+        <p>Fehlt Ihnen ein Punkt? Eigene Vorschläge werden Teil der Konsultation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="teilnahme" id="teilnahme">
+  <div class="wrap">
+    <h2>Jetzt teilnehmen</h2>
+    <p>Die Teilnahme dauert etwa 5 Minuten, ist anonym und ohne Registrierung möglich.</p>
+    <div class="cta-row">
+      <a class="btn" id="polis-link" href="https://pol.is/325prfpfkj" target="_blank" rel="noopener">Zur Konsultation</a>
+      <div>
+        <div id="qrcode"></div>
+        <p class="qr-hint">Scannen &amp; teilnehmen</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hinweis">
+  <div class="wrap">
+    <div class="box">
+      Diese Konsultation wird unabhängig von Parteien und Verwaltung durchgeführt. Es werden keine personenbezogenen Daten erhoben, keine Cookies gesetzt und keine Tracking-Dienste eingebunden.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Ein Projekt der Buergerkonsultation Oelde · <a href="https://buergerdialoge.github.io" target="_blank" rel="noopener">buergerdialoge.github.io</a>
+  </div>
+</footer>
+
+<script>
+  // Konfiguration: hier die finale pol.is-URL eintragen, sobald die Konversation angelegt ist
+  var POLIS_URL = "https://pol.is/325prfpfkj";
+  document.getElementById('polis-link').href = POLIS_URL;
+  new QRCode(document.getElementById("qrcode"), {
+    text: POLIS_URL,
+    width: 132,
+    height: 132,
+    colorDark: "#16232C",
+    colorLight: "#FFFFFF"
+  });
+</script>
+
+</body>
+</html>
